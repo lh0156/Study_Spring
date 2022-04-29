@@ -9,6 +9,9 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class SpringConfig {
 
+    //직접 자바로 넣는 형식!
+
+
     @Bean
     public MemberService memberService() {
         return new MemberService(memberRepository());
