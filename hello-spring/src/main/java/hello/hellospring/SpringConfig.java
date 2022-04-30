@@ -1,16 +1,26 @@
 package hello.hellospring;
 
+import hello.hellospring.repository.JdbcMemberRepository;
 import hello.hellospring.repository.MemberRepository;
-import hello.hellospring.repository.MemoryMemberRepository;
 import hello.hellospring.service.MemberService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import javax.sql.DataSource;
 
 @Configuration
 public class SpringConfig {
 
-    //직접 자바로 넣는 형식!
+    private DataSource dataSource;
 
+    @Autowired
+    public SpringConfig(DataSource dataSource) {
+        this.dataSource = dataSource;
+    }
+
+
+    //직접 자바로 넣는 형식!
 
     @Bean
     public MemberService memberService() {
@@ -19,7 +29,9 @@ public class SpringConfig {
 
     @Bean
     public MemberRepository memberRepository() {
-        return new MemoryMemberRepository();
+        //return new MemoryMemberRepository();
+        return new JdbcMemberRepository(dataSource);
+
     }
 
 }
