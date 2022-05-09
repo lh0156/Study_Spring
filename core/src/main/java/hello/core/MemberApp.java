@@ -8,8 +8,9 @@ import hello.core.member.MemberServiceImpl;
 public class MemberApp {
 
     public static void main(String[] args) {
-        //멤버 서비스 객체를 만든다.
-        MemberService memberService = new MemberServiceImpl();
+
+        AppConfig appConfig = new AppConfig();
+        MemberService memberService = appConfig.memberService();
 
         //멤버 객체를 만든다
         Member member = new Member(1L, "엄윤섭", Grade.VIP);
