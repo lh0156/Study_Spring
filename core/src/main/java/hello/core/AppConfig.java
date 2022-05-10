@@ -1,6 +1,8 @@
 package hello.core;
 
+import hello.core.discount.DiscountPolicy;
 import hello.core.discount.FixDiscountPolicy;
+import hello.core.member.MemberRepository;
 import hello.core.member.MemberService;
 import hello.core.member.MemberServiceImpl;
 import hello.core.member.MemoryMemberRepository;
@@ -9,13 +11,26 @@ import hello.core.order.OrderServiceImpl;
 
 public class AppConfig {
 
+    /*
+    * 이렇게 변환해주면 역할(관심사)이 완벽히 분리된다는 장점이 있다!
+    * 설계에 대한 그림이 구성 정보에 그대로 드러남!
+    * 역할과 구현 클래스가 한눈에 들어온다 ㅋㅋ 짱임
+    */
+
     public MemberService memberService() {
-        return new MemberServiceImpl(new MemoryMemberRepository());
+        return new MemberServiceImpl(memberRepository());
+    }
+
+    private MemberRepository memberRepository() {
+        return new MemoryMemberRepository();
     }
 
     public OrderService orderService() {
-        return new OrderServiceImpl(new MemoryMemberRepository(), new FixDiscountPolicy());
+        return new OrderServiceImpl(memberRepository(), discountPolicy());
     }
 
+    public DiscountPolicy discountPolicy() {
+        return new FixDiscountPolicy();
+    }
 
 }
