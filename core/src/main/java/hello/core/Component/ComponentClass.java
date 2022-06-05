@@ -2,7 +2,7 @@ package hello.core.Component;
 
 import org.springframework.stereotype.Component;
 
-@Component
+@Component()
 public class ComponentClass {
 
     public void save() {
