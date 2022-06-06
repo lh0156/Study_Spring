@@ -1,4 +1,4 @@
-package hello.core.Component;
+package hello.core.pratice.Component;
 
 import org.springframework.stereotype.Component;
 
@@ -9,7 +9,7 @@ public class ComponentClass {
         System.out.println("세이브합니다.");
     }
 
-    private void join() {
+    public void join() {
         System.out.println("조인 합니다.");
     }
 }
