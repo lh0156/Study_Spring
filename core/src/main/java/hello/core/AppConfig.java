@@ -11,7 +11,7 @@ import hello.core.order.OrderServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-//@Configuration
+@Configuration
 public class AppConfig {
 
     /*
@@ -20,19 +20,41 @@ public class AppConfig {
     * 역할과 구현 클래스가 한눈에 들어온다 ㅋㅋ 짱임
     */
 
+    //@Bean memberService -> new MemoryMemberRepository()
+    //@Bean orderService -> new MemoryMemberRepository()
+
+    //call AppConfig.memberService
+    //call AppConfig.memberRepository
+    //call AppConfig.memberRepository
+    //call Appconfig.orderService
+    //call AppConfig.memberRepository
+
+    /*우리 의도와는 다르게
+    call AppConfig.memberService
+    call AppConfig.memberRepository
+    call Appconfig.orderService
+    으로 끝난다.
+    스프링이 싱글턴을 보장해주고 있는 것!
+    */
+
     @Bean
     public MemberService memberService() {
+        System.out.println("call AppConfig.memberService");
         return new MemberServiceImpl(memberRepository());
     }
 
     @Bean
     public MemberRepository memberRepository() {
+        System.out.println("call AppConfig.memberRepository");
         return new MemoryMemberRepository();
     }
 
     @Bean
     public OrderService orderService() {
-        return new OrderServiceImpl(memberRepository(), discountPolicy());
+        System.out.println("AppConfig.orderService");
+        return new OrderServiceImpl(
+                memberRepository(),
+                discountPolicy());
     }
 
     @Bean
