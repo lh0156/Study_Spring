@@ -1,4 +1,4 @@
-package hello.core.pratice.Component;
+package hello.core.pratice.component;
 
 import org.springframework.stereotype.Component;
 
