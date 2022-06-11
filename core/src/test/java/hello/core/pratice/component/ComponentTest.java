@@ -1,4 +1,4 @@
-package hello.core.pratice.Component;
+package hello.core.pratice.component;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
