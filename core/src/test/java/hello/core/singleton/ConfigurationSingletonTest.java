@@ -31,4 +31,16 @@ public class ConfigurationSingletonTest {
         Assertions.assertThat(memberService.getMemberRepository()).isSameAs(memberRepository1);
         Assertions.assertThat(orderService.getMemberRepository()).isSameAs(memberRepository2);
     }
+
+    @Test
+    void configurationDeep() {
+        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
+        AppConfig bean = ac.getBean(AppConfig.class);
+
+        System.out.println("bean = " + bean.getClass());
+        //EnhancerBySpringCGLIB$$f253be8c
+        //스프링이 만든 Instance임!
+
+        //순수한 클래스라면 class hello.core.AppConfig가 나와야 함
+    }
 }
