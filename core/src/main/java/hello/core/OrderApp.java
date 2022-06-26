@@ -10,7 +10,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 public class OrderApp {
 
-    //이렇게 메인 메소드로 하는것보다 자동화된 Test로 하는게 제일 좋음 JunitTm자!
+    //이렇게 메인 메소드로 하는것보다 자동화된 Test로 하는게 제일 좋음 JunitT굿!
     public static void main(String[] args) {
 
 
