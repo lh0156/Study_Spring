@@ -1,5 +1,8 @@
 package hello.core;
 
+import hello.core.member.MemberRepository;
+import hello.core.member.MemoryMemberRepository;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.FilterType;
@@ -27,18 +30,23 @@ import org.springframework.context.annotation.FilterType;
         그리고 SpringBoot에 ComponentScan이 있기 때문에 사실 AppConfig를 쓸 필요도 없어짐 ㅋ ㅋ
     */
         basePackageClasses = AutoAppConfig.class,
-        excludeFilters = @ComponentScan.Filter(type = FilterType.ANNOTATION, classes = Configuration.class))
+        excludeFilters = @ComponentScan.Filter(type = FilterType.ANNOTATION, classes = Configuration.class)
+)
 
     /*
-        @ComonentScan은 @Component뿐만 아니라 다음의 내용도 추가로 대상에 포함한다
+    @ComonentScan은 @Component뿐만 아니라 다음의 내용도 추가로 대상에 포함한다
 
-        @Component: 컴포넌트 스캔에서 사용
-        @Controller: 스프링 MVC 컨트롤러에서 사용
-        @Service: 스프링 비즈니스 로직에서 사용
-        @Repository: 스프링 데이터 접근 계층에서 사용
-        @Configuration: 스프링 설정 정보에서 사용
+    @Component: 컴포넌트 스캔에서 사용
+    @Controller: 스프링 MVC 컨트롤러에서 사용
+    @Service: 스프링 비즈니스 로직에서 사용
+    @Repository: 스프링 데이터 접근 계층에서 사용
+    @Configuration: 스프링 설정 정보에서 사용
     */
 
 public class AutoAppConfig {
 
+    @Bean(name="memoryMemberRepository")
+    MemberRepository memberRepository() {
+        return new MemoryMemberRepository();
+    }
 }
