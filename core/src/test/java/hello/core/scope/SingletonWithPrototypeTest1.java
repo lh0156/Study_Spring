@@ -43,15 +43,37 @@ public class SingletonWithPrototypeTest1 {
 
     @Scope("singleton")
     static class ClientBean {
-        private PrototypeBean prototypeBean; //생성 시점에 주입
+        private PrototypeBean prototypeBean; //생성 시점에 주입 x01
 
         @Autowired
         ApplicationContext applicationContext;
 
-//        @Autowired
-//        public ClientBean(PrototypeBean prototypeBean) {
-//            this.prototypeBean = prototypeBean;
-//        }
+        @Autowired
+        public ClientBean(PrototypeBean prototypeBean) {
+            this.prototypeBean = prototypeBean;
+        }
+
+        public int logic() {
+
+            PrototypeBean prototypeBean = applicationContext.getBean(PrototypeBean.class);
+            prototypeBean.addCount();
+            int count = prototypeBean.getCount();
+            return count;
+        }
+
+    }
+
+    @Scope("singleton")
+    static class ClientBean2 {
+        private PrototypeBean prototypeBean; //생성 시점에 주입 x02
+
+        @Autowired
+        ApplicationContext applicationContext;
+
+        @Autowired
+        public ClientBean2(PrototypeBean prototypeBean) {
+            this.prototypeBean = prototypeBean;
+        }
 
         public int logic() {
 
