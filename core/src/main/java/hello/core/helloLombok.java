@@ -15,6 +15,6 @@ public class helloLombok {
         helloLombok.setAge(30);
         helloLombok.setName("윤섭");
 
-        System.out.println("helloLombok: " + helloLombok);
+//        System.out.println("helloLombok: " + helloLombok);
     }
 }

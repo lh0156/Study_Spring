@@ -28,8 +28,8 @@ public class OrderApp {
 
         Order order = orderService.createOrder(memberId, "itemA", 20000);
 
-        System.out.println("Order = " + order);
-        System.out.println("order.calculatePrice() = " + order.calculatePrice());
+//        System.out.println("Order = " + order);
+//        System.out.println("order.calculatePrice() = " + order.calculatePrice());
     }
 
 }
