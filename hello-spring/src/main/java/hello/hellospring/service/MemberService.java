@@ -7,7 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.Optional;
 
-@Transactional
+//@Transactional
 public class MemberService {
 
     private final MemberRepository memberRepository;
@@ -21,11 +21,11 @@ public class MemberService {
     */
     public Long join (Member member) {
 
-        //같은 이름이 있는 중복 회원 X
         validateDuplicateMember(member);
-
         memberRepository.save(member);
         return member.getId();
+
+
     }
 
     private void validateDuplicateMember(Member member) {
