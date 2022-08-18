@@ -1,26 +1,20 @@
 package Pratice.AOP.controller;
 
-import Pratice.AOP.service.MemberService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class MemberController {
 
-    private MemberService memberService;
-
-    @Autowired
-    public MemberController(MemberService memberService) {
-        this.memberService = memberService;
+    @GetMapping("/get/{id}")
+    public String get(@PathVariable Long id, @RequestParam String name) {
+        System.out.println("Get Method가 실행됨!");
+        System.out.println("Get Method {id}: " + id);
+        System.out.println("Get Method {name}: " + name);
+        //서비스 로직
+        return id + " " + name;
     }
-
-    @GetMapping("hello")
-    public String hello(Model model) {
-        model.addAttribute("test", "testtest");
-        return "test";
-    }
-
 
 }

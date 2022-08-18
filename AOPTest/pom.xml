@@ -8,10 +8,10 @@
 		<version>2.6.10</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>Pratice</groupId>
-	<artifactId>AOP</artifactId>
+	<groupId>AOP</groupId>
+	<artifactId>AOPTest</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>AOP</name>
+	<name>AOPTest</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
@@ -28,12 +28,22 @@
 			<scope>test</scope>
 		</dependency>
 
-		<dependency>
-			<groupId>org.aspectj</groupId>
-			<artifactId>aspectjweaver</artifactId>
-			<version>1.8.14</version>
-		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>org.springframework</groupId>-->
+<!--			<artifactId>spring-aop</artifactId>-->
+<!--			<version>4.2.4.RELEASE</version>-->
+<!--		</dependency>-->
+<!--		<dependency>-->
+<!--			<groupId>org.springframework</groupId>-->
+<!--			<artifactId>spring-aspects</artifactId>-->
+<!--			<version>4.2.4.RELEASE</version>-->
+<!--		</dependency>-->
 
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+	</dependencies>
 
 	<build>
 		<plugins>
