@@ -15,5 +15,4 @@ public class Member {
     private Long id;
     private String username;
 
-
 }
