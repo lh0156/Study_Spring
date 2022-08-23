@@ -1,4 +1,5 @@
-# 김영한 선생님의 Spring RoadMap을 학습하는 Repo입니다.
+# Spring과 관련된 기술 스텍을 학습하는 repo입니다.
 
 스프링 천재 섭프링<br>
 JPA 천재 섭피에이
+화이팅!
