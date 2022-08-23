@@ -1,0 +1,10 @@
+rootProject.name = 'spring-test'
+include 'day1:hello-world'
+findProject(':day1:hello-world')?.name = 'hello-world'
+include 'day1:constructor-injection'
+findProject(':day1:constructor-injection')?.name = 'constructor-injection'
+include 'day1:setter-injection'
+findProject(':day1:setter-injection')?.name = 'setter-injection'
+include 'day1:field-injection'
+findProject(':day1:field-injection')?.name = 'field-injection'
+

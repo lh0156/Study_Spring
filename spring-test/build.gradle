@@ -1,0 +1,17 @@
+ext {
+    springVersion = '5.3.22'
+    //스프링 버전이 바뀔 수 있기 때문에 이렇게 하면 더 유동적으로 버전 설정이 가능하다
+    spring = [
+            context : "org.springframework:spring-context:$springVersion"
+    ]
+}
+
+subprojects {
+    //우리가 관리하는 버전을 뜻한다.
+    version '1.0-SNAPSHOT'
+
+    repositories {
+        mavenCentral()
+    }
+}
+
