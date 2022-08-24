@@ -1,12 +1,23 @@
+package com.oraclejava.day2;
+
 import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 
-public class MessageDigestTest {
-    public static void main(String[] args) throws NoSuchAlgorithmException {
-        //암호화 알고리즘 MD5, SHA1, SHA-128, SHA-256
-        MessageDigest digest = MessageDigest.getInstance("SHA-256");
+public class MessageDigester {
 
-        String msg = "ILoveYou";
+    private MessageDigest messageDigest;
+
+    public void setMessageDigest(MessageDigest messageDigest) {
+        this.messageDigest = messageDigest;
+    }
+
+    //암호화(digest)
+    public void digest(String msg) {
+        digest(msg, messageDigest);
+    }
+
+    //오버로드
+    public void digest(String msg, MessageDigest digest) {
+
         byte[] byteArray = msg.getBytes();
         byte[] hash = digest.digest(byteArray);
         //System.out.println(hash);
@@ -23,6 +34,6 @@ public class MessageDigestTest {
             hexString.append(hex);
         }
 
-        System.out.println(hexString);
+        System.out.println(hexString.toString());
     }
 }

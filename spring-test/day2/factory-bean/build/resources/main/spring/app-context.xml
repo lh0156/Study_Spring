@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 공장을 2개 만들자 -->
+    <bean id="shaDigest"
+          class="com.oraclejava.day2.MessageDigestFactoryBean"
+          p:algorithmName="Sha-256"/>
+    <bean id="defaultDigest"
+          class="com.oraclejava.day2.MessageDigestFactoryBean"/>
+    <bean id="digester"
+          class="com.oraclejava.day2.MessageDigester"
+          p:messageDigest-ref="shaDigest"/>
+
+</beans>
