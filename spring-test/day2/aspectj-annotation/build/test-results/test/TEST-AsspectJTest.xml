@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="AsspectJTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-08-24T08:23:50" hostname="DESKTOP-NKSGQVR" time="0.515">
+  <properties/>
+  <testcase name="catTest()" classname="AsspectJTest" time="0.515"/>
+  <system-out><![CDATA[returning method:String com.oraclejava.day2.Cat.getBreed()
+리턴된 값: Russian Blue
+Russian Blue
+안녕~ 방가방가~~~
+아년ㅇ하세요 저는 Russian Blue에요
+야옹
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -17,4 +17,8 @@ include 'day2:boot-oraclejava'
 findProject(':day2:boot-oraclejava')?.name = 'boot-oraclejava'
 include 'day2:boot-oraclejava'
 findProject(':day2:boot-oraclejava')?.name = 'boot-oraclejava'
+include 'day2:boot-oracleweb'
+findProject(':day2:boot-oracleweb')?.name = 'boot-oracleweb'
+include 'day2:aspectj-annotation'
+findProject(':day2:aspectj-annotation')?.name = 'aspectj-annotation'
 
