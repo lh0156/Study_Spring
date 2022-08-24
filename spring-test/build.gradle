@@ -1,8 +1,13 @@
 ext {
     springVersion = '5.3.22'
+    //bootVersion = '2.7.3'
     //스프링 버전이 바뀔 수 있기 때문에 이렇게 하면 더 유동적으로 버전 설정이 가능하다
     spring = [
             context : "org.springframework:spring-context:$springVersion"
+    ]
+
+    boot = [
+            starter : "org.springframework.boot:spring-boot-starter"
     ]
 }
 

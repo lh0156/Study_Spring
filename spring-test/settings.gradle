@@ -13,4 +13,8 @@ include 'day2:factory-bean'
 findProject(':day2:factory-bean')?.name = 'factory-bean'
 include 'day2:java-config'
 findProject(':day2:java-config')?.name = 'java-config'
+include 'day2:boot-oraclejava'
+findProject(':day2:boot-oraclejava')?.name = 'boot-oraclejava'
+include 'day2:boot-oraclejava'
+findProject(':day2:boot-oraclejava')?.name = 'boot-oraclejava'
 

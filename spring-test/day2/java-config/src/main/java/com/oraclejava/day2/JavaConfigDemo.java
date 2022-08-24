@@ -24,8 +24,8 @@ public class JavaConfigDemo {
     public static void main(String[] args) {
         ApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
         Person person = ac.getBean("person", Person.class);
-        System.out.println(person);
+        System.out.println("이름: " + person.getName());
+        System.out.println("나이: " + person.getAge());
     }
 
-    
 }

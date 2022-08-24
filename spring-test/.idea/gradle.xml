@@ -15,6 +15,7 @@
             <option value="$PROJECT_DIR$/day1/hello-world" />
             <option value="$PROJECT_DIR$/day1/setter-injection" />
             <option value="$PROJECT_DIR$/day2" />
+            <option value="$PROJECT_DIR$/day2/boot-oraclejava" />
             <option value="$PROJECT_DIR$/day2/factory-bean" />
             <option value="$PROJECT_DIR$/day2/initializing-bean" />
             <option value="$PROJECT_DIR$/day2/java-config" />
