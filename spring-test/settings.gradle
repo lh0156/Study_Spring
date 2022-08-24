@@ -7,4 +7,8 @@ include 'day1:setter-injection'
 findProject(':day1:setter-injection')?.name = 'setter-injection'
 include 'day1:field-injection'
 findProject(':day1:field-injection')?.name = 'field-injection'
+include 'day2:initializing-bean'
+findProject(':day2:initializing-bean')?.name = 'initializing-bean'
+include 'day2:factory-bean'
+findProject(':day2:factory-bean')?.name = 'factory-bean'
 
