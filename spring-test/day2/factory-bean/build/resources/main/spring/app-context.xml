@@ -19,7 +19,7 @@
         class="com.oraclejava.day2.CalendarFactoryBean"/>
     <bean id="LACalendar"
           class="com.oraclejava.day2.CalendarFactoryBean"
-          p:city="America/Los Angeles"/>
+          p:city="America/Los_Angeles"/>
     <bean id="LondonCalendar"
           class="com.oraclejava.day2.CalendarFactoryBean"
           p:city="Europe/London"/>

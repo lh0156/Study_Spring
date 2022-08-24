@@ -17,6 +17,7 @@
             <option value="$PROJECT_DIR$/day2" />
             <option value="$PROJECT_DIR$/day2/factory-bean" />
             <option value="$PROJECT_DIR$/day2/initializing-bean" />
+            <option value="$PROJECT_DIR$/day2/java-config" />
           </set>
         </option>
       </GradleProjectSettings>
