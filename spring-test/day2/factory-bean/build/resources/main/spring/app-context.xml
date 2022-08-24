@@ -14,4 +14,26 @@
           class="com.oraclejava.day2.MessageDigester"
           p:messageDigest-ref="shaDigest"/>
 
+    <!-- 시간 출력 Bean -->
+    <bean id="defaultCalendar"
+        class="com.oraclejava.day2.CalendarFactoryBean"/>
+    <bean id="LACalendar"
+          class="com.oraclejava.day2.CalendarFactoryBean"
+          p:city="America/Los Angeles"/>
+    <bean id="LondonCalendar"
+          class="com.oraclejava.day2.CalendarFactoryBean"
+          p:city="Europe/London"/>
+
+
+
+    <bean id="localTime"
+          class="com.oraclejava.day2.Calendarer"
+          p:calendar-ref="defaultCalendar"/>
+    <bean id="LATime"
+          class="com.oraclejava.day2.Calendarer"
+          p:calendar-ref="LACalendar"/>
+    <bean id="LondonTime"
+          class="com.oraclejava.day2.Calendarer"
+          p:calendar-ref="LondonCalendar"/>
+
 </beans>
