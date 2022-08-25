@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+}
+
+apply plugin: 'war'
+
+war {
+    archiveName = 'userinfo-webapp.war'
+}
+
+group 'com.oraclejava'
+version 'unspecified'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation spring.context
+    implementation spring.webmvc
+    implementation web.servlet
+    implementation web.jstl
+    implementation project(":day3:spring-jdbc-annotation")
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+}
+
+test {
+    useJUnitPlatform()
+}

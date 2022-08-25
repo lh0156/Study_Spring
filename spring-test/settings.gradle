@@ -25,4 +25,6 @@ include 'day3:test-day3Module'
 findProject(':day3:test-day3Module')?.name = 'test-day3Module'
 include 'day3:spring-jdbc-annotation'
 findProject(':day3:spring-jdbc-annotation')?.name = 'spring-jdbc-annotation'
+include 'day3:userinfo-webapp'
+findProject(':day3:userinfo-webapp')?.name = 'userinfo-webapp'
 

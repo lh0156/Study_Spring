@@ -10,7 +10,8 @@ ext {
     //스프링 버전이 바뀔 수 있기 때문에 이렇게 하면 더 유동적으로 버전 설정이 가능하다
     spring = [
             context : "org.springframework:spring-context:$springVersion",
-            jdbc : "org.springframework:spring-jdbc:$springVersion"
+            jdbc    : "org.springframework:spring-jdbc:$springVersion",
+            webmvc  : "org.springframework:spring-webmvc:$springVersion"
     ]
 
     boot = [
@@ -23,6 +24,13 @@ ext {
             aspectjrt : "org.aspectj:aspectjrt:$aspectVersion",
             slf4j : "org.slf4j:jcl-over-slf4j:$slf4jVersion",
             logback : "ch.qos.logback:logback-classic:$logbackVersion"
+    ]
+
+    web = [
+            jstl : "jstl:jstl:1.2",
+            bootstrap : "",
+            jquery : "",
+            servlet : "javax:javaee-web-api:8.0.1"
     ]
 
     db = [

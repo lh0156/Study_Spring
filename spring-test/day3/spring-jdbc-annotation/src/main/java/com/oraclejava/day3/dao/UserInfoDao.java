@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface UserInfoDao {
     List<UserInfo> findAll();
+    UserInfo findUserByNo(int no);
 }
