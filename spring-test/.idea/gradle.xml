@@ -22,6 +22,7 @@
             <option value="$PROJECT_DIR$/day2/initializing-bean" />
             <option value="$PROJECT_DIR$/day2/java-config" />
             <option value="$PROJECT_DIR$/day3" />
+            <option value="$PROJECT_DIR$/day3/spring-jdbc-annotation" />
             <option value="$PROJECT_DIR$/day3/test-day3Module" />
           </set>
         </option>

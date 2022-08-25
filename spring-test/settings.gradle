@@ -23,4 +23,6 @@ include 'day2:aspectj-annotation'
 findProject(':day2:aspectj-annotation')?.name = 'aspectj-annotation'
 include 'day3:test-day3Module'
 findProject(':day3:test-day3Module')?.name = 'test-day3Module'
+include 'day3:spring-jdbc-annotation'
+findProject(':day3:spring-jdbc-annotation')?.name = 'spring-jdbc-annotation'
 

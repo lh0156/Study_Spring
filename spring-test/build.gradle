@@ -1,10 +1,16 @@
 ext {
     springVersion = '5.3.22'
     aspectVersion = '1.9.9'
+
+    //log lib
+    slf4jVersion = '2.0.0'
+    logbackVersion = '1.2.11'
+
     //bootVersion = '2.7.3'
     //스프링 버전이 바뀔 수 있기 때문에 이렇게 하면 더 유동적으로 버전 설정이 가능하다
     spring = [
-            context : "org.springframework:spring-context:$springVersion"
+            context : "org.springframework:spring-context:$springVersion",
+            jdbc : "org.springframework:spring-jdbc:$springVersion"
     ]
 
     boot = [
@@ -14,7 +20,9 @@ ext {
 
     misc = [
             aspectjweaver : "org.aspectj:aspectjweaver:$aspectVersion",
-            aspectjrt : "org.aspectj:aspectjrt:$aspectVersion"
+            aspectjrt : "org.aspectj:aspectjrt:$aspectVersion",
+            slf4j : "org.slf4j:jcl-over-slf4j:$slf4jVersion",
+            logback : "ch.qos.logback:$logbackVersion"
     ]
 }
 
