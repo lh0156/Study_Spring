@@ -20,6 +20,13 @@ dependencies {
     implementation spring.webmvc
     implementation web.servlet
     implementation web.jstl
+    implementation web.jquery
+    implementation web.bootstrap
+    implementation misc.slf4j
+    implementation misc.logback
+    implementation "org.eclipse:yasson:1.0"
+    implementation "javax.json:javax.json-api:1.1"
+    implementation "org.glassfish:javax.json:1.1"
     implementation project(":day3:spring-jdbc-annotation")
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
