@@ -10,7 +10,13 @@ repositories {
 }
 
 dependencies {
-
+    implementation spring.context
+    implementation spring.jdbc
+    implementation misc.slf4j
+    implementation misc.logback
+    implementation db.mariadb
+//    커넥션 풀
+    implementation db.dbcp2
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
 }
