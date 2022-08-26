@@ -25,5 +25,8 @@ public class KboServiceImpl implements KboService{
         return kboRepository.findByTeamA(teamA);
     }
 
-
+    @Override
+    public List<Kbo> findByTeamAAndTeamB(String teamA, String teamB) {
+        return kboRepository.findByTeamAAndTeamB(teamA, teamB);
+    }
 }

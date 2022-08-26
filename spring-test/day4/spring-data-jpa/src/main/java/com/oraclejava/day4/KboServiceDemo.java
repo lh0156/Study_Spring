@@ -13,13 +13,15 @@ public class KboServiceDemo {
                 new AnnotationConfigApplicationContext(JpaConfig.class);
 
         KboService kboService = ctx.getBean(KboService.class);
-//        List<Kbo> kboList = kboService.findAll();
-        List<Kbo> kboList = kboService.findByTeamA("Hanwha");
+        //List<Kbo> kboList = kboService.findAll();
+        //List<Kbo> kboList = kboService.findByTeamA("Hanwha");
+
+        List<Kbo> kboList = kboService.findByTeamAAndTeamB("Hanwha", "Kia");
         System.out.println("순번   |   원정팀   |    홈팀   |   승자");
         for (Kbo kbo : kboList) {
-            System.out.println(kbo.getNo() + "  |  "
-                    + kbo.getTeamA() + "  |  "
-                    + kbo.getTeamB() + "  |  "
+            System.out.println(kbo.getNo() + "    |  "
+                    + kbo.getTeamA() + "    |  "
+                    + kbo.getTeamB() + "    |  "
                     + kbo.getWinner());
         }
 
