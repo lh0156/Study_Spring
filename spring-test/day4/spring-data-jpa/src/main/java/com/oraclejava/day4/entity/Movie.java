@@ -10,7 +10,7 @@ import java.util.Set;
         @NamedQuery(name=Movie.FIND_MOVIE_BY_TITLE,
             query = "select distinct(m) from Movie m " +
                     "left join fetch m.casts c " +
-                    "where m.title = :title")
+                    "where m.title like concat('%', :title, '%')")
 )
 public class Movie {
 

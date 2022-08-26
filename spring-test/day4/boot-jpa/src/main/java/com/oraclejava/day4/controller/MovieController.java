@@ -18,13 +18,15 @@ public class MovieController {
     @Autowired
     private MovieService movieService;
 
+    @GetMapping
+    public String list() {
+        return "show";
+    }
     @GetMapping(value="/{title}")
     public String show(@PathVariable("title") String title, Model model) {
         List<Movie> movieList = movieService.findByTitle(title);
         model.addAttribute("movieList", movieList);
         return "show";
     }
-
-
 
 }
