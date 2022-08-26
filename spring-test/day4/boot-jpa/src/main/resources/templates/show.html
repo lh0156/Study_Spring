@@ -31,6 +31,8 @@
             <th>영화 줄거리</th>
             <th>개봉일</th>
             <th>배역 정보</th>
+            <th>상세 보기</th>
+            <th>수정 하기</th>
         </tr>
 
         <tr th:each="movie : ${movieList}">
@@ -43,6 +45,10 @@
                 <span th:each="cast : ${movie.casts}">
                     <span th:text="${cast.characterName}">주윤발</span>
                 </span>
+            </td>
+            <td>
+                <a th:href="${'/movies/detail/' + movie.movieId}">View</a>
+                <a th:href="${'/movies/edit/' + movie.movieId}">Edit</a>
             </td>
         </tr>
     </table>

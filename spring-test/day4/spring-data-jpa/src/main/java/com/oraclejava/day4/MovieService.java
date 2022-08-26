@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface MovieService {
     List<Movie> findByTitle(String title);
+    Movie findById(Long id);
+    Movie save(Movie movie);
 }
