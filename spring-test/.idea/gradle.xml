@@ -27,6 +27,8 @@
             <option value="$PROJECT_DIR$/day3/spring-jdbc-annotation" />
             <option value="$PROJECT_DIR$/day3/test-day3Module" />
             <option value="$PROJECT_DIR$/day3/userinfo-webapp" />
+            <option value="$PROJECT_DIR$/day4" />
+            <option value="$PROJECT_DIR$/day4/spring-data-jpa" />
           </set>
         </option>
       </GradleProjectSettings>

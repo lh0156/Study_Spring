@@ -27,4 +27,6 @@ include 'day3:spring-jdbc-annotation'
 findProject(':day3:spring-jdbc-annotation')?.name = 'spring-jdbc-annotation'
 include 'day3:userinfo-webapp'
 findProject(':day3:userinfo-webapp')?.name = 'userinfo-webapp'
+include 'day4:spring-data-jpa'
+findProject(':day4:spring-data-jpa')?.name = 'spring-data-jpa'
 
