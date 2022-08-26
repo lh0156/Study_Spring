@@ -29,7 +29,9 @@ ext {
 
     boot = [
             starter : "org.springframework.boot:spring-boot-starter",
-            starterWeb : "org.springframework.boot:spring-boot-starter-web"
+            starterWeb : "org.springframework.boot:spring-boot-starter-web",
+            starterJpa : "org.springframework.boot:spring-boot-starter-data-jpa",
+            starterThyme : "org.springframework.boot:spring-boot-starter-thymeleaf"
     ]
 
     misc = [

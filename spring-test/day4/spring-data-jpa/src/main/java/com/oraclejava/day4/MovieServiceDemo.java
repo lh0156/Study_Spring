@@ -15,7 +15,7 @@ public class MovieServiceDemo {
                 new AnnotationConfigApplicationContext(JpaConfig.class);
         MovieService ms =
                 ctx.getBean(MovieService.class);
-        List<Movie> movieList = ms.findByTitle("올드보이");
+        List<Movie> movieList = ms.findByTitle("Titanic");
 
         for (Movie movie : movieList) {
             System.out.println(movie.getMovieId()

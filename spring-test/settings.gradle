@@ -29,4 +29,6 @@ include 'day3:userinfo-webapp'
 findProject(':day3:userinfo-webapp')?.name = 'userinfo-webapp'
 include 'day4:spring-data-jpa'
 findProject(':day4:spring-data-jpa')?.name = 'spring-data-jpa'
+include 'day4:boot-jpa'
+findProject(':day4:boot-jpa')?.name = 'boot-jpa'
 
