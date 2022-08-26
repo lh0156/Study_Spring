@@ -1,12 +1,20 @@
 package com.oraclejava.day4.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
+@NamedQueries(
+        @NamedQuery(name=Movie.FIND_MOVIE_BY_TITLE,
+            query = "select distinct(m) from Movie m " +
+                    "left join fetch m.casts c " +
+                    "where m.title = :title")
+)
 public class Movie {
+
+    public static final String FIND_MOVIE_BY_TITLE = "Movie.findByTitle";
     @Id
     @Column(name="movie_id")
     private Long movieId;
@@ -16,7 +24,7 @@ public class Movie {
     private String overview;
     private Double popularity;
     @Column(name="release_date")
-    private Date releaseData;
+    private Date releaseDate;
     private Long revenue;
     private Integer runtime;
     @Column(name="movie_status")
@@ -26,6 +34,11 @@ public class Movie {
     private Double voteAverage;
     @Column(name="vote_count")
     private Long voteCount;
+
+    @OneToMany(mappedBy = "movie", cascade = CascadeType.ALL,
+            orphanRemoval = true)
+    private Set<MovieCast> casts = new HashSet<>();
+
 
     public Long getMovieId() {
         return movieId;
@@ -75,12 +88,12 @@ public class Movie {
         this.popularity = popularity;
     }
 
-    public Date getReleaseData() {
-        return releaseData;
+    public Date getReleaseDate() {
+        return releaseDate;
     }
 
-    public void setReleaseData(Date releaseData) {
-        this.releaseData = releaseData;
+    public void setReleaseDate(Date releaseDate) {
+        this.releaseDate = releaseDate;
     }
 
     public Long getRevenue() {
@@ -129,5 +142,13 @@ public class Movie {
 
     public void setVoteCount(Long voteCount) {
         this.voteCount = voteCount;
+    }
+
+    public Set<MovieCast> getCasts() {
+        return casts;
+    }
+
+    public void setCasts(Set<MovieCast> casts) {
+        this.casts = casts;
     }
 }
