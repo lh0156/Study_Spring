@@ -31,7 +31,8 @@ ext {
             starter : "org.springframework.boot:spring-boot-starter",
             starterWeb : "org.springframework.boot:spring-boot-starter-web",
             starterJpa : "org.springframework.boot:spring-boot-starter-data-jpa",
-            starterThyme : "org.springframework.boot:spring-boot-starter-thymeleaf"
+            starterThyme : "org.springframework.boot:spring-boot-starter-thymeleaf",
+            starterMybatis : "org.mybatis.spring.boot:mybatis-spring-boot-stater:2.2.2"
     ]
 
     misc = [

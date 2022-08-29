@@ -11,10 +11,8 @@
 <div class="container">
     <h1>Movie Details</h1>
 
-    <div>
-
+    <div th:if= "${movie != null}" >
         <form action="">
-
             <div class="row">
                 <label class="col-sm-2 control-label">제목:</label>
                 <div class="col-sm-10">
@@ -58,6 +56,10 @@
 
         </form>
 
+    </div>
+
+    <div th:unless="${movie != null}">
+        <div>그런 영화는 없습니다!</div>
     </div>
 </div>
 </body>
