@@ -21,13 +21,21 @@ public class MovieServiceImpl implements MovieService{
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Movie findById(Long id) {
-        return movieRepository.findById(id).get();
+        return movieRepository.findById(id).orElse(null);
     }
 
     @Override
     public Movie save(Movie movie) {
         return movieRepository.save(movie);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public void remove(Long id) {
+        Movie movie = findById(id);
+        movieRepository.delete(movie);
     }
 
 

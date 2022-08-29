@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Movie Details</title>
+    <link rel="stylesheet" media="screen"
+          th:href="@{/webjars/bootstrap/5.1.3/css/bootstrap.min.css}" />
+    <script th:src="@{/webjars/jquery/3.6.0/jquery.min.js}"></script>
+</head>
+<body>
+<div class="container">
+    <h1>Movie Details</h1>
+
+    <div>
+
+        <form action="">
+
+            <div class="row">
+                <label class="col-sm-2 control-label">제목:</label>
+                <div class="col-sm-10">
+                    <p class="form-control"
+                       th:text="${movie.title}">Movie Title</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <label class="col-sm-2 control-label">제작비:</label>
+                <div class="col-sm-10">
+                    <p class="form-control"
+                       th:text="${'$' + #numbers.formatInteger(movie.budget, 3, 'POINT')}">Movie budget</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <label class="col-sm-2 control-label">홈페이지:</label>
+                <div class="col-sm-10">
+                    <p class="form-control">
+                        <a th:href="${movie.homepage}"
+                            th:text="${movie.homepage}">Movie homepage></a></p>
+                </div>
+            </div>
+
+            <div class="row">
+                <label class="col-sm-2 control-label">줄거리:</label>
+                <div class="col-sm-10">
+                    <p class="form-control"
+                       th:text="${movie.overview}">Movie overview</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <label class="col-sm-2 control-label">개봉일:</label>
+                <div class="col-sm-10">
+                    <p class="form-control"
+                       th:text="${#dates.format(movie.releaseDate, 'yyyy-MM-dd')}">Movie releaseDate</p>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+</body>
+</html>

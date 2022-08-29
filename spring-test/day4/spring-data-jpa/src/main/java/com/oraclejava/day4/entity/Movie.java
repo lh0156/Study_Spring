@@ -1,5 +1,7 @@
 package com.oraclejava.day4.entity;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.HashSet;
@@ -23,6 +25,9 @@ public class Movie {
     private String homepage;
     private String overview;
     private Double popularity;
+
+    @Temporal(TemporalType.DATE) //YYYY-MM-DD
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name="release_date")
     private Date releaseDate;
     private Long revenue;
