@@ -32,6 +32,8 @@
             <option value="$PROJECT_DIR$/day4/spring-data-jpa" />
             <option value="$PROJECT_DIR$/day5" />
             <option value="$PROJECT_DIR$/day5/spring-mybatis" />
+            <option value="$PROJECT_DIR$/day6" />
+            <option value="$PROJECT_DIR$/day6/spring-querydsl" />
           </set>
         </option>
       </GradleProjectSettings>
