@@ -47,4 +47,11 @@ public class UserRepositoryTest {
         User user = dao.findOne(predicate).get();
         //System.out.println(user.getLogin());
     }
+
+    @Test
+    public void QTest() {
+        QUser qUser = QUser.user;
+        System.out.println(qUser);
+    }
+
 }
