@@ -1,5 +1,6 @@
 plugins {
     id 'org.springframework.boot' version '2.7.3'
+    id 'com.ewerk.gradle.plugins.querydsl' version '1.0.10'
 }
 
 apply plugin: 'java'
@@ -21,6 +22,9 @@ dependencies {
     implementation db.mariadb
     implementation web.bootstrap
     implementation web.jquery
+    implementation misc.queryDslJpa
+    implementation misc.queryDslApt
+
     //implementation project(':day4:spring-data-jpa')
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
@@ -28,4 +32,30 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+/*
+ * queryDSL 설정 추가
+ */
+// querydsl에서 사용할 경로 설정
+def querydslDir = "$buildDir/generated/querydsl"
+// JPA 사용 여부와 사용할 경로를 설정
+querydsl {
+    jpa = true
+    querydslSourcesDir = querydslDir
+}
+// build 시 사용할 sourceSet 추가
+sourceSets {
+    main.java.srcDir querydslDir
+}
+// querydsl 컴파일시 사용할 옵션 설정
+compileQuerydsl{
+    options.annotationProcessorPath = configurations.querydsl
+}
+// querydsl 이 compileClassPath 를 상속하도록 설정
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+    querydsl.extendsFrom compileClasspath
 }

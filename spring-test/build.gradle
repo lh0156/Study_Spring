@@ -4,6 +4,7 @@ ext {
     aspectVersion = '1.9.9'
     guavaVersion = '31.1-jre'
     hibernateVersion = '5.6.10.Final'
+    queryDslVersion = '5.0.0'
 
     //log lib
     slf4jVersion = '2.0.0'
@@ -11,7 +12,6 @@ ext {
 
     bootstrapVersion = '5.1.3'
     jqueryVersion = '3.6.0'
-
 
 
     //bootVersion = '2.7.3'
@@ -43,7 +43,9 @@ ext {
             aspectjrt : "org.aspectj:aspectjrt:$aspectVersion",
             slf4j : "org.slf4j:jcl-over-slf4j:$slf4jVersion",
             logback : "ch.qos.logback:logback-classic:$logbackVersion",
-            guava : "com.google.guava:guava:$guavaVersion"
+            guava : "com.google.guava:guava:$guavaVersion",
+            queryDslJpa : "com.querydsl:querydsl-jpa:${queryDslVersion}",
+            queryDslApt: "com.querydsl:querydsl-apt:${queryDslVersion}"
     ]
 
     web = [
