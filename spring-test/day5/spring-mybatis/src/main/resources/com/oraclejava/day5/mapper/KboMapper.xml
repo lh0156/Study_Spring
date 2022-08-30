@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.oraclejava.day5.mapper.KboMapper">
+    <resultMap id="kboMap" type="com.oraclejava.day5.entity.Kbo">
+        <result column="NO" jdbcType="INTEGER" property="gameNo" />
+        <result column="TEAM_A" jdbcType="VARCHAR" property="awayTeam" />
+        <result column="TEAM_B" jdbcType="VARCHAR" property="homeTeam" />
+        <result column="WINNER" jdbcType="VARCHAR" property="winner" />
+    </resultMap>
+
+    <select id="selectAll" resultMap="kboMap">
+        SELECT NO, TEAM_A, TEAM_B, WINNER
+        FROM KBO
+    </select>
+
+    <select id="searchAway" resultMap="kboMap">
+        SELECT NO, TEAM_A, TEAM_B, WINNER
+        FROM KBO
+        <if test="name != null">
+            WHERE TEAM_A LIKE concat('%', #{name}, '%')
+        </if>
+    </select>
+
+    <select id="searchAwayHome" resultMap="kboMap">
+        SELECT NO, TEAM_A, TEAM_B, WINNER
+        FROM KBO
+        <where>
+            <choose>
+                <when test="awayName != null and awayName != ''">
+                    TEAM_A LIKE concat('%', #{awayName}, '%')
+                </when>
+                <when test="homeName != null and homeName != ''">
+                    TEAM_B LIKE concat('%', #{homeName}, '%')
+                </when>
+            </choose>
+        </where>
+    </select>
+
+    <select id="searchInWinner" resultMap="kboMap">
+        SELECT NO, TEAM_A, TEAM_B, WINNER
+        FROM KBO
+        <where>
+            <if test="winners.size() > 0">
+                WINNER IN
+                    <foreach item="winner" collection="winners"
+                             open="(" separator="," close=")">
+                        #{winner}
+                    </foreach>
+            </if>
+        </where>
+    </select>
+
+    <insert id="insert">
+        INSERT INTO KBO
+            (NO, TEAM_A, TEAM_B, WINNER)
+        VALUES
+            (#{teamNo}, #{awayTeam}, #{homeTeam}, #{winner})
+    </insert>
+
+    <update id="update">
+        UPDATE KBO
+        SET
+            TEAM_A = #{awayTeam},
+            TEAM_B = #{homeTeam},
+            WINNER = #{winner}
+        WHERE
+            NO = #{teamNo}
+    </update>
+
+    <delete id="delete">
+        DELETE FROM KBO
+        WHERE
+            NO = #{teamNo}
+    </delete>
+</mapper>

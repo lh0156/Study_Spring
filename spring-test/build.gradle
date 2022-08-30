@@ -13,14 +13,16 @@ ext {
     jqueryVersion = '3.6.0'
 
 
+
     //bootVersion = '2.7.3'
-    //스프링 버전이 바뀔 수 있기 때문에 이렇게 하면 더 유동적으로 버전 설정이 가능하다
+    // 이건 주석입니다.
     spring = [
             context : "org.springframework:spring-context:$springVersion",
             jdbc    : "org.springframework:spring-jdbc:$springVersion",
             webmvc  : "org.springframework:spring-webmvc:$springVersion",
             data    : "org.springframework.data:spring-data-jpa:$springDataVersion",
             orm     : "org.springframework:spring-orm:$springVersion"
+
     ]
 
     hibernate = [
@@ -32,7 +34,8 @@ ext {
             starterWeb : "org.springframework.boot:spring-boot-starter-web",
             starterJpa : "org.springframework.boot:spring-boot-starter-data-jpa",
             starterThyme : "org.springframework.boot:spring-boot-starter-thymeleaf",
-            starterMybatis : "org.mybatis.spring.boot:mybatis-spring-boot-stater:2.2.2"
+            starterMybatis : "org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2",
+            lombok: "org.projectlombok:lombok"
     ]
 
     misc = [
@@ -57,11 +60,9 @@ ext {
 }
 
 subprojects {
-    //우리가 관리하는 버전을 뜻한다.
     version '1.0-SNAPSHOT'
 
     repositories {
         mavenCentral()
     }
 }
-

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Kbo 경기 결과</title>
+</head>
+<body>
+    <h1>모든 경기 결과</h1>
+    <form th:action="@{/search}">
+        원정팀/홈팀 검색:
+        <input type="text" name="awayTeam">
+        <input type="text" name="homeTeam">
+        <input type="submit" value="검색" />
+    </form>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>원정팀</th>
+                <th>홈팀</th>
+                <th>승리팀</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="game : ${games}">
+                <td th:text="${game.gameNo}">1</td>
+                <td th:text="${game.awayTeam}">기아</td>
+                <td th:text="${game.homeTeam}">SSG</td>
+                <td th:text="${game.winner}">SSG</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
