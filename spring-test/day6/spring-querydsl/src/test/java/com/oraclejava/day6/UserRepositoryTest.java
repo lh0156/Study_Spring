@@ -52,6 +52,15 @@ public class UserRepositoryTest {
     public void QTest() {
         QUser qUser = QUser.user;
         System.out.println(qUser);
+        System.out.println(qUser.login.eq("yunseop"));
+
+    }
+
+    @Test
+    public void QTest2() {
+        QUser qUser = QUser.user;
+
+
     }
 
 }
