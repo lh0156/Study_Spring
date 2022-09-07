@@ -1,18 +1,38 @@
 package jasypt;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
-import org.springframework.context.annotation.Configuration;
 
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
+
+@Component
 @Configuration
 @ConfigurationProperties(prefix = "demo")
 public class Config {
 
-//    @Value("${demo.password}")
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getAlgorithm() {
+        return algorithm;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setAlgorithm(String algorithm) {
+        this.algorithm = algorithm;
+    }
+
+    @Value("${password}")
     public String password;
 
-//    @Value("${demo.algorithm}")
+    @Value("${algorithm}")
     public String algorithm;
 
 }
