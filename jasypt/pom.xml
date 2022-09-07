@@ -33,7 +33,7 @@
 			<artifactId>jasypt-spring-boot-starter</artifactId>
 			<version>3.0.4</version>
 		</dependency>
-		<!-- 암호화 알고리즘 -->
+		<!-- ********** 암호화 알고리즘 ********** -->
 		<dependency>
 			<groupId>org.bouncycastle</groupId>
 			<artifactId>bcprov-jdk15on</artifactId>
