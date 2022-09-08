@@ -1,17 +1,17 @@
 package POJOTest;
 
-import PojoJavaUtil.EncryptUtil;
+import aim.com.kr.jasypt.PojoJavaUtil.EncryptUtilPojo;
 import org.junit.jupiter.api.Test;
 
 import java.security.Key;
 
-import static PojoJavaUtil.EncryptUtil.decryptDES;
+import static aim.com.kr.jasypt.PojoJavaUtil.EncryptUtilPojo.decryptDES;
 
 public class DESTest {
 
     @Test
     void DES() throws Exception {
-        Key key = EncryptUtil.getKey();
+        Key key = EncryptUtilPojo.getKey();
 
         String message = "암호화 할 메세지입니다.";
         String isEncrypt = decryptDES(key, message);

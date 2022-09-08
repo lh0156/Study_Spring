@@ -2,15 +2,9 @@ package POJOTest;
 
 import org.junit.jupiter.api.Test;
 
-import javax.crypto.BadPaddingException;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.NoSuchPaddingException;
-import java.io.UnsupportedEncodingException;
-import java.security.InvalidKeyException;
 import java.security.KeyPair;
-import java.security.NoSuchAlgorithmException;
 
-import static PojoJavaUtil.EncryptUtil.*;
+import static aim.com.kr.jasypt.PojoJavaUtil.EncryptUtilPojo.*;
 
 public class RSATest {
 

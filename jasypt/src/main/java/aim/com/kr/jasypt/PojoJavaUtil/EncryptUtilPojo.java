@@ -11,7 +11,7 @@
  ****************************************************************************
  */
 
-package PojoJavaUtil;
+package aim.com.kr.jasypt.PojoJavaUtil;
 
 import org.springframework.stereotype.Component;
 
@@ -26,9 +26,7 @@ import java.util.Random;
 
 
 @Component
-public class EncryptUtil {
-
-
+public class EncryptUtilPojo {
 
     //--------------------RSA 시작--------------------
     /**
@@ -186,7 +184,6 @@ public class EncryptUtil {
             byte[] ciphertext = cipher.doFinal(message.getBytes());
 
             // 7. salt와 암호문을 Base64 인코딩 후 결합하여 최종 결과물 생성
-
             String saltString = Base64.getEncoder().encodeToString(salt);
             String ciphertextString = Base64.getEncoder().encodeToString(ciphertext);
             return saltString + ciphertextString;
@@ -195,11 +192,6 @@ public class EncryptUtil {
             return null;
         }
 
-
-
     }
-
-
-
 
 }//end class

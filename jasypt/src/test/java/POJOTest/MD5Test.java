@@ -2,7 +2,7 @@ package POJOTest;
 
 import org.junit.jupiter.api.Test;
 
-import static PojoJavaUtil.EncryptUtil.decryptMD5;
+import static aim.com.kr.jasypt.PojoJavaUtil.EncryptUtilPojo.decryptMD5;
 
 public class MD5Test {
 

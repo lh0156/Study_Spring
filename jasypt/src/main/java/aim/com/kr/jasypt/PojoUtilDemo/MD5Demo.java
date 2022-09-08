@@ -11,20 +11,15 @@
  ****************************************************************************
  */
 
-package PojoUtilDemo;
+package aim.com.kr.jasypt.PojoUtilDemo;
 
-import PojoJavaUtil.EncryptUtil;
+import static aim.com.kr.jasypt.PojoJavaUtil.EncryptUtilPojo.decryptMD5;
 
-import java.security.Key;
-
-import static PojoJavaUtil.EncryptUtil.decryptDES;
-
-public class DESDemo {
-    public static void main(String[] args) throws Exception {
-        Key key = EncryptUtil.getKey();
+public class MD5Demo {
+    public static void main(String[] args) {
 
         String message = "암호화 할 메세지입니다.";
-        String isEncrypt = decryptDES(key, message);
+        String isEncrypt = decryptMD5(message);
 
         System.out.println("원문 메세지: " + message);
         System.out.println("암호화 메세지: " + isEncrypt);

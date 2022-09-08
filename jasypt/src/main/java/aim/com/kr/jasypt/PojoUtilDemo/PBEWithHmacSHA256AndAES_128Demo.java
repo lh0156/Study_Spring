@@ -11,18 +11,23 @@
  ****************************************************************************
  */
 
-package PojoUtilDemo;
+package aim.com.kr.jasypt.PojoUtilDemo;
 
-import static PojoJavaUtil.EncryptUtil.decryptMD5;
+import static aim.com.kr.jasypt.PojoJavaUtil.EncryptUtilPojo.decryptPBE;
 
-public class MD5Demo {
-    public static void main(String[] args) {
+public class PBEWithHmacSHA256AndAES_128Demo {
 
+    public static void main(String[] args) throws Exception {
+
+        /*
+            PBEWithHmacSHA256AndAES_128 알고리즘 사용
+        */
         String message = "암호화 할 메세지입니다.";
-        String isEncrypt = decryptMD5(message);
+        String isEncrypt = decryptPBE(message);
 
         System.out.println("원문 메세지: " + message);
         System.out.println("암호화 메세지: " + isEncrypt);
 
     }
+
 }
