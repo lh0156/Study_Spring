@@ -91,10 +91,11 @@ public class EncryptUtils {
             System.out.println(isEncrypt);
 
         } else if (algorithm.equals("3")){
+            //DES 알고리즘
+
             DESKeySpec desKeySpec = new DESKeySpec(passcode.getBytes());
             SecretKeyFactory keyFactory = SecretKeyFactory.getInstance("DES");
             Key key = keyFactory.generateSecret(desKeySpec);
-
             //그냥 Des인지 Triple Des 인지 에 따라 분기  passcode값이 24비트인경우 트리플 des로 앤크립트
             String instance = (passcode.length() == 24) ? "DESede/ECB/PKCS5Padding" : "DES/ECB/PKCS5Padding";
 
