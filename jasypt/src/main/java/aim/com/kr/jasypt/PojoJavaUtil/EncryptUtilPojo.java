@@ -13,8 +13,6 @@
 
 package aim.com.kr.jasypt.PojoJavaUtil;
 
-import org.springframework.stereotype.Component;
-
 import javax.crypto.*;
 import javax.crypto.spec.DESKeySpec;
 import javax.crypto.spec.PBEKeySpec;
@@ -25,7 +23,6 @@ import java.util.Base64;
 import java.util.Random;
 
 
-@Component
 public class EncryptUtilPojo {
 
     //--------------------RSA 시작--------------------

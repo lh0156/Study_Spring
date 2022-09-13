@@ -1,39 +1,57 @@
-package aim.com.kr.jasypt;
+/*
+ ****************************************************************************
+ *
+ * (c) Copyright aim All rights reserved.
+ *
+ * This software is proprietary to and embodies the confidential
+ * technology of aim Possession, use, or copying of this
+ * software and media is authorized only pursuant to a valid written
+ * license from aim systems, Inc.
+ *
+ ****************************************************************************
+ */
 
+import kr.co.aim.platform.framework.utility.common.Config;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import org.jasypt.encryption.pbe.PooledPBEStringEncryptor;
 import org.jasypt.encryption.pbe.config.SimpleStringPBEConfig;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.DESKeySpec;
 import java.security.Key;
 import java.util.Base64;
 
-@Component
-public class EncryptUtil {
+/*
+ *
+ *****************************************************************************
+ * PACKAGE : kr.co.aim.platform.framework.Encrypt;
+ * NAME : EncyprtTest
+ * Description : 사용자가 입력한 키값을 바탕으로 암호화하는 양방향 알고리즘의 테스트 클래스입니다.
+ *
+ *****************************************************************************
+ */
+@SpringBootTest(classes = Config.class)
+@EnableConfigurationProperties(Config.class)
+public class EncryptTest {
 
     @Autowired
     private Config config;
 
-    public void Encryptor(String message) throws Exception {
-        
+    @Test
+    public void Encryptor() throws Exception {
         String passcode = config.getPasscode();
         String algorithm = config.getAlgorithm();
-        PooledPBEStringEncryptor encryptor = null;
+        PooledPBEStringEncryptor encryptor;
 
-        System.out.println("passcode: " + passcode);
-        System.out.println("algorithm: " + algorithm);
+        String message = "테스트 문장입니다";
 
-
-        if (algorithm.equals("1")) {
+        if (algorithm.equals("algorithm1")) {
             //PBEWithMD5AndDES 알고리즘 사용
-            
-            if (encryptor == null) {
-                encryptor = new PooledPBEStringEncryptor();
-            }
-            
+            encryptor = new PooledPBEStringEncryptor();
             SimpleStringPBEConfig config = new SimpleStringPBEConfig();
             config.setPassword(passcode);
             config.setAlgorithm("PBEWithMD5AndDES");
@@ -48,12 +66,10 @@ public class EncryptUtil {
             String isEncrypt = encryptor.encrypt(message);
             System.out.println(isEncrypt);
 
-        } else if (algorithm.equals("2")) {
+        } else if (algorithm.equals("algorithm2")) {
             //PBEWithSHA256And128BitAES 알고리즘
-            
-            if (encryptor == null) {
-                encryptor = new PooledPBEStringEncryptor();
-            }
+            encryptor = new PooledPBEStringEncryptor();
+
             encryptor.setAlgorithm("PBEWithSHA256And128BitAES-CBC-BC"); // 사용 알고리즘
             encryptor.setProvider(new BouncyCastleProvider());
             encryptor.setPoolSize(2); // 암호화 요청의 pool 크기. 2를 권장
@@ -62,7 +78,8 @@ public class EncryptUtil {
             String isEncrypt = encryptor.encrypt(message);
             System.out.println(isEncrypt);
 
-        } else if (algorithm.equals("3")){
+        } else if (algorithm.equals("algorithm3")){
+
             DESKeySpec desKeySpec = new DESKeySpec(passcode.getBytes());
             SecretKeyFactory keyFactory = SecretKeyFactory.getInstance("DES");
             Key key = keyFactory.generateSecret(desKeySpec);
@@ -81,7 +98,9 @@ public class EncryptUtil {
 
             System.out.println(s);
 
+        } else {
+            System.out.println("yml 설정 값이 유효하지 않습니다.");
         }
     }
-    
+
 }

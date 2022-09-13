@@ -1,3 +1,4 @@
-demo:
-  passcode: password
-  algorithm: 1
+util:
+  encrypt:
+    passcode: password
+    algorithm: algorithm1

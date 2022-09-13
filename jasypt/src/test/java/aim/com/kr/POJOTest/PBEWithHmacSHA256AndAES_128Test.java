@@ -1,4 +1,4 @@
-package POJOTest;
+package aim.com.kr.POJOTest;
 
 import org.junit.jupiter.api.Test;
 
