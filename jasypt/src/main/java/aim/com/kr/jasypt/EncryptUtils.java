@@ -17,6 +17,7 @@ import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import org.jasypt.encryption.pbe.PooledPBEStringEncryptor;
 import org.jasypt.encryption.pbe.config.SimpleStringPBEConfig;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import javax.crypto.SecretKeyFactory;
@@ -36,8 +37,11 @@ import java.util.Base64;
 @Component(value = "encryptor")
 public class EncryptUtils {
 
-    @Autowired
-    private Config config;
+    @Value("${util.encrypt.passcode}")
+    private String passcode;
+
+    @Value("${util.encrypt.algorithm}")
+    private String algorithm;
 
     /***
      *
@@ -46,9 +50,7 @@ public class EncryptUtils {
      * @throws Exception
      */
     public void Encryptor(String message) throws Exception {
-        
-        String passcode = config.getPasscode();
-        String algorithm = config.getAlgorithm();
+
         PooledPBEStringEncryptor encryptor = null;
 
         System.out.println("passcode: " + passcode);

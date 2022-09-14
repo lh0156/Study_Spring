@@ -2,3 +2,10 @@ util:
   encrypt:
     passcode: password
     algorithm: algorithm1
+
+spring:
+  datasource:
+    url: jdbc:oracle:thin:@127.0.0.1:1521:XE
+    username: aimframework
+    password: aim#2022
+    driver-class-name: oracle.jdbc.driver.OracleDriver
