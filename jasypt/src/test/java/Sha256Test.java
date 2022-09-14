@@ -11,7 +11,7 @@
  ****************************************************************************
  */
 
-import kr.co.aim.platform.framework.utility.common.Sha256Utils;
+import aim.com.kr.jasypt.Sha256Utils;
 import org.junit.jupiter.api.Test;
 
 /*

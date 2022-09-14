@@ -11,7 +11,7 @@
  ****************************************************************************
  */
 
-import kr.co.aim.platform.framework.utility.common.Config;
+import aim.com.kr.jasypt.Config;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import org.jasypt.encryption.pbe.PooledPBEStringEncryptor;
 import org.jasypt.encryption.pbe.config.SimpleStringPBEConfig;
@@ -45,9 +45,10 @@ public class EncryptTest {
     public void Encryptor() throws Exception {
         String passcode = config.getPasscode();
         String algorithm = config.getAlgorithm();
+
         PooledPBEStringEncryptor encryptor;
 
-        String message = "테스트 문장입니다";
+        String message = "password";
 
         if (algorithm.equals("algorithm1")) {
             //PBEWithMD5AndDES 알고리즘 사용

@@ -33,7 +33,7 @@ import java.util.Base64;
  *
  *****************************************************************************
  */
-@Component
+@Component(value = "encryptor")
 public class EncryptUtils {
 
     @Autowired
@@ -55,7 +55,7 @@ public class EncryptUtils {
         System.out.println("algorithm: " + algorithm);
 
 
-        if (algorithm.equals("1")) {
+        if (algorithm.equals("algorithm1")) {
             //PBEWithMD5AndDES 알고리즘 사용
             
             if (encryptor == null) {
@@ -76,7 +76,7 @@ public class EncryptUtils {
             String isEncrypt = encryptor.encrypt(message);
             System.out.println(isEncrypt);
 
-        } else if (algorithm.equals("2")) {
+        } else if (algorithm.equals("algorithm2")) {
             //PBEWithSHA256And128BitAES 알고리즘
             
             if (encryptor == null) {
@@ -90,7 +90,7 @@ public class EncryptUtils {
             String isEncrypt = encryptor.encrypt(message);
             System.out.println(isEncrypt);
 
-        } else if (algorithm.equals("3")){
+        } else if (algorithm.equals("algorithm3")){
             //DES 알고리즘
 
             DESKeySpec desKeySpec = new DESKeySpec(passcode.getBytes());

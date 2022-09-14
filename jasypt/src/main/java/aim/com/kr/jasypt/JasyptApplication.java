@@ -12,12 +12,10 @@ public class JasyptApplication {
 	public static void main(String[] args) throws Exception{
 		SpringApplication.run(JasyptApplication.class, args);
 
-		ApplicationContext ac = new AnnotationConfigApplicationContext(EncryptUtil.class);
-		EncryptUtil bean = ac.getBean(EncryptUtil.class);
+		ApplicationContext ac = new AnnotationConfigApplicationContext(EncryptUtils.class);
+		EncryptUtils bean = ac.getBean(EncryptUtils.class);
 
 		bean.Encryptor("테스트");
-
-
 	}
 
 }
