@@ -1,7 +1,6 @@
 package test.spring.scheduler;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableScheduling;
@@ -21,9 +20,7 @@ public class SchedulerApplication {
 	}
 
 	public static void methodSample() {
-
 		log.info("샘플 메소드 시행");
-
 	}
 
 }
