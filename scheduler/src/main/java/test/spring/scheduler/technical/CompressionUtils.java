@@ -16,15 +16,52 @@ import org.apache.commons.codec.binary.Base64;
 public class CompressionUtils {
 
 	public static void main(String[] args) {
-		
-		String temp1K = "public static void main(Stirng[] args]";
 
-		String isEncoding1K = stringToGZipString(temp1K);
+		String temp1 = "1";
+
+		String temp2 = temp1 + temp1;
+
+
+		String temp10 = "";
+
+		for(int i=0; i<10; ++i) {
+			temp10 += temp1;
+		}
+
+		String temp100 = "";
+
+		for(int i=0; i<10; ++i) {
+			temp100 += temp10;
+		}
+
+		String temp1000 = "";
+
+		for(int i=0; i<10; ++i) {
+			temp1000 += temp100;
+		}
+
+		String temp2000 = temp1000 + temp1000;
+		String temp10000 = "";
+
+		for(int i=0; i<10; ++i) {
+			temp10000 += temp1000;
+		}
+
+		String temp20000 = temp10000 + temp10000;
+		String temp100000 = temp20000 + temp20000 + temp20000 + temp20000 + temp20000;
+
+		String temp1000000 = "";
+
+		for(int i=0; i<10; ++i) {
+			temp1000000 += temp100000;
+		}
+
+		String isEncoding1K = stringToGZipString(temp20000);
 		String isDecoding1K = GZIPStringToString(isEncoding1K);
 
-		System.out.println("원문: " + temp1K);
-		System.out.println("isEncoding: " + isEncoding1K);
-		System.out.println("isDecoding: " + isDecoding1K);
+		System.out.println("원문: " + temp20000.length());
+		System.out.println("isEncoding: " + isEncoding1K.length());
+		System.out.println("isDecoding: " + isDecoding1K.length());
 
 	}
 
