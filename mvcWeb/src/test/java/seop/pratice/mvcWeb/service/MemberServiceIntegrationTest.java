@@ -1,47 +1,34 @@
-package seop.pratice.mvcWeb;
+package seop.pratice.mvcWeb.service;
 
-import org.assertj.core.api.Assertions;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 import seop.pratice.mvcWeb.domain.Member;
 import seop.pratice.mvcWeb.repository.MemberRepository;
-import seop.pratice.mvcWeb.repository.MemoryMemberRepository;
-import seop.pratice.mvcWeb.service.MemberService;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.skyscreamer.jsonassert.JSONAssert.assertEquals;
 
-public class MemberServiceTest {
+@SpringBootTest
+@Transactional
+public class MemberServiceIntegrationTest {
 
-    MemberService memberService;
-    MemoryMemberRepository memberRepository;
-
-    @BeforeEach
-    public void beforeEach() {
-        memberRepository = new MemoryMemberRepository();
-        memberService = new MemberService(memberRepository);
-    }
-    @AfterEach
-    public void afterEach() {
-        memberRepository.clearStore();
-    }
+    @Autowired MemberService memberService;
+    @Autowired MemberRepository memberRepository;
 
     @Test
     public void 회원가입() throws Exception {
-        //Given
         Member member = new Member();
-        member.setName("hello");
-        //When
+        member.setName("홍길동");
+
         Long saveId = memberService.join(member);
-        //Then
+
         Member findMember = memberRepository.findById(saveId).get();
-        Assertions.assertThat(member).isEqualTo(findMember);
+        assertEquals(member.getName(), findMember.getName());
+
     }
-
-
 
     @Test
     public void 중복_회원_예외() throws Exception {

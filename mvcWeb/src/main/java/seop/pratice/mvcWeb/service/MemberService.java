@@ -1,17 +1,23 @@
 package seop.pratice.mvcWeb.service;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import seop.pratice.mvcWeb.domain.Member;
 import seop.pratice.mvcWeb.repository.MemberRepository;
 
 import java.util.List;
 import java.util.Optional;
 
+
 public class MemberService {
 
-    @Autowired
     MemberRepository memberRepository;
+
+    @Autowired
+    public MemberService(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
 
     public Long join(Member member) {
 

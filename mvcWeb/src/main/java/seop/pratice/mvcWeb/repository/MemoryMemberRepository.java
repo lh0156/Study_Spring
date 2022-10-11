@@ -1,8 +1,10 @@
 package seop.pratice.mvcWeb.repository;
 
+import org.springframework.stereotype.Repository;
 import seop.pratice.mvcWeb.domain.Member;
 
 import java.util.*;
+
 
 public class MemoryMemberRepository implements MemberRepository {
 
