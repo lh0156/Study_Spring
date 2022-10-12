@@ -20,7 +20,8 @@ public class JdbcMemberRepository implements MemberRepository {
 
     @Override
     public Member save(Member member) {
-        String sql = "insert into member(name) values(?)";
+        String sql = "INSERT INTO MEMBER VALUES (seqMember.nextVal, ?)";
+
         Connection conn = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;

@@ -3,13 +3,14 @@ package seop.pratice.mvcWeb.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import seop.pratice.mvcWeb.domain.Member;
 import seop.pratice.mvcWeb.repository.MemberRepository;
 
 import java.util.List;
 import java.util.Optional;
 
-
+@Transactional
 public class MemberService {
 
     MemberRepository memberRepository;
