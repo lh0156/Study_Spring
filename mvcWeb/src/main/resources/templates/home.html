@@ -1,15 +1,43 @@
-<!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
 <body>
-<div class="container">
-    <div>
-        <h1>Hello Spring</h1>
-        <p>회원 기능</p>
-        <p>
-            <a href="/members/new">회원 가입</a>
-            <a href="/members">회원 목록</a>
-        </p>
-    </div>
-</div> <!-- /container -->
+<textarea id="input" cols="30" rows="10"></textarea>
+<textarea id="output" cols="30" rows="10"></textarea>
+<input type='button' id="btn" value="button">
 </body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+
+    let output = document.getElementById('output')
+    var btn = document.getElementById('btn');
+
+    btn.addEventListener('click', function(event){
+        let input = document.getElementById('input').value;
+        alert("input: " + input)
+        $.ajax({
+            type: 'POST',
+            url: 'change',
+            data : {
+                id: input
+            },
+            dataType: 'text',
+            success: function(response, type){
+                output.innerText = response;
+            },
+            error: function(error){
+                alert("실패");
+            }
+        })
+    });
+    
+
+</script>
 </html>
