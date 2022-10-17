@@ -8,9 +8,16 @@
     <title>Document</title>
 </head>
 <body>
-<textarea id="input" cols="30" rows="10"></textarea>
-<textarea id="output" cols="30" rows="10"></textarea>
-<input type='button' id="btn" value="button">
+    <textarea id="input" cols="30" rows="10"></textarea>
+    <textarea id="output" cols="30" rows="10"></textarea>
+    <input type='button' id="btn" value="button">
+
+    <select name="algorithm" id="algorithm">
+        <option value="algorithm1">algorithm1</option>
+        <option value="algorithm2">algorithm2</option>
+        <option value="algorithm3">algorithm3</option>
+    </select>
+
 </body>
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -21,7 +28,8 @@
 
     btn.addEventListener('click', function(event){
         let input = document.getElementById('input').value;
-        alert("input: " + input)
+        let algorithm = document.getElementById('algorithm').value;
+        alert("input: " + algorithm)
         $.ajax({
             type: 'POST',
             url: 'change',
