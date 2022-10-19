@@ -3,6 +3,7 @@ package encrypt.demo.service;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import org.jasypt.encryption.pbe.PooledPBEStringEncryptor;
 import org.jasypt.encryption.pbe.config.SimpleStringPBEConfig;
+import org.springframework.stereotype.Service;
 
 import javax.crypto.Cipher;
 import javax.crypto.SecretKeyFactory;
@@ -10,6 +11,7 @@ import javax.crypto.spec.DESKeySpec;
 import java.security.Key;
 import java.util.Base64;
 
+@Service
 public class EncryptorUtils {
 
     public static String Encryptor(String message, String passcode, String algorithm) throws Exception {
@@ -51,13 +53,31 @@ public class EncryptorUtils {
             String isEncrypt = encryptor.encrypt(message);
             return isEncrypt;
 
-        } else if (algorithm.equals("algorithm3")){
-            DESKeySpec desKeySpec = new DESKeySpec(passcode.getBytes());
+        } else if (algorithm.equals("algorithm3")) {
+
+            int PCSize = passcode.length();
+
+            String desPasscode = null;
+
+            if (PCSize >= 8) {
+                desPasscode = passcode.substring(0, 8);
+            } else {
+                desPasscode = "false";
+            }
+
+            DESKeySpec desKeySpec = new DESKeySpec(desPasscode.getBytes());
+
+//            System.out.println("desPasscode" + desPasscode);
+//            System.out.println("desPasscode length" + desPasscode.length());
+//            System.out.println("desKeySpec" + desKeySpec);
+//            System.out.println("desKey Key" + desKeySpec.getKey());
+//            System.out.println("desKey hashCode" + desKeySpec.hashCode());
+
             SecretKeyFactory keyFactory = SecretKeyFactory.getInstance("DES");
             Key key = keyFactory.generateSecret(desKeySpec);
 
-            //그냥 Des인지 Triple Des 인지 에 따라 분기  passcode값이 24비트인경우 트리플 des로 앤크립트
-            String instance = (passcode.length() == 24) ? "DESede/ECB/PKCS5Padding" : "DES/ECB/PKCS5Padding";
+            //String instance = (desPasscode.length() == 24) ? "DESede/ECB/PKCS5Padding" : "DES/ECB/PKCS5Padding";
+            String instance = "DES/ECB/PKCS5Padding";
 
             Cipher cipher = Cipher.getInstance(instance);
 
