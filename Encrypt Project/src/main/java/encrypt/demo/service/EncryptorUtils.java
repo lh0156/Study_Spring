@@ -1,34 +1,21 @@
-package seop.pratice.mvcWeb.controller;
+package encrypt.demo.service;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
-import seop.pratice.mvcWeb.domain.EncryptValue.Value;
+import org.bouncycastle.jce.provider.BouncyCastleProvider;
+import org.jasypt.encryption.pbe.PooledPBEStringEncryptor;
+import org.jasypt.encryption.pbe.config.SimpleStringPBEConfig;
+import org.springframework.stereotype.Service;
 
+import javax.crypto.Cipher;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.DESKeySpec;
-import javax.servlet.http.HttpServletRequest;
 import java.security.Key;
 import java.util.Base64;
 
-@Controller
-public class HomeController {
+@Service
+public class EncryptorUtils {
 
-    @GetMapping("/")
-    public String home() {
-        return "home";
-    }
+    public static String Encryptor(String message, String passcode, String algorithm) throws Exception {
 
-    @RequestMapping(value="change", method= RequestMethod.POST)
-    @ResponseBody
-    public String change(Value input) {
-        return "this is " + input.getId();
-    }
-
-    public String Encryptor(String message) throws Exception {
-
-        passcode = extractmakeZigZaGString(passcode);
         PooledPBEStringEncryptor encryptor = null;
 
         if (algorithm.equals("algorithm1")) {
@@ -45,7 +32,6 @@ public class HomeController {
             config.setPoolSize("1");
             config.setProviderName("SunJCE");
             config.setSaltGeneratorClassName("org.jasypt.salt.RandomSaltGenerator");
-            config.setIvGeneratorClassName("org.jasypt.iv.NoIvGenerator");
             config.setStringOutputType("base64");
             encryptor.setConfig(config);
             //test
@@ -67,17 +53,35 @@ public class HomeController {
             String isEncrypt = encryptor.encrypt(message);
             return isEncrypt;
 
-        } else if (algorithm.equals("algorithm3")){
-            DESKeySpec desKeySpec = new DESKeySpec(passcode.getBytes());
+        } else if (algorithm.equals("algorithm3")) {
+
+            int PCSize = passcode.length();
+
+            String desPasscode = null;
+
+            if (PCSize >= 8) {
+                desPasscode = passcode.substring(0, 8);
+            } else {
+                desPasscode = "false";
+            }
+
+            DESKeySpec desKeySpec = new DESKeySpec(desPasscode.getBytes());
+
+//            System.out.println("desPasscode" + desPasscode);
+//            System.out.println("desPasscode length" + desPasscode.length());
+//            System.out.println("desKeySpec" + desKeySpec);
+//            System.out.println("desKey Key" + desKeySpec.getKey());
+//            System.out.println("desKey hashCode" + desKeySpec.hashCode());
+
             SecretKeyFactory keyFactory = SecretKeyFactory.getInstance("DES");
             Key key = keyFactory.generateSecret(desKeySpec);
 
-            //그냥 Des인지 Triple Des 인지 에 따라 분기  passcode값이 24비트인경우 트리플 des로 앤크립트
-            String instance = (passcode.length() == 24) ? "DESede/ECB/PKCS5Padding" : "DES/ECB/PKCS5Padding";
+            //String instance = (desPasscode.length() == 24) ? "DESede/ECB/PKCS5Padding" : "DES/ECB/PKCS5Padding";
+            String instance = "DES/ECB/PKCS5Padding";
 
-            javax.crypto.Cipher cipher = javax.crypto.Cipher.getInstance(instance);
+            Cipher cipher = Cipher.getInstance(instance);
 
-            cipher.init(javax.crypto.Cipher.ENCRYPT_MODE, key);
+            cipher.init(Cipher.ENCRYPT_MODE, key);
 
             byte[] inputBytes = message.getBytes("UTF8");
             byte[] outputBytes = cipher.doFinal(inputBytes);
