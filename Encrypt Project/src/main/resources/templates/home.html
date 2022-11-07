@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Aim Encryptor</title>
     <style>
 
         header, main {
@@ -16,49 +16,63 @@
             margin-top: 20px;
         }
 
+        .logo {
+            width: 35px;
+            height: 35px;
+            margin-top: 10px;
+        }
+
         #input, #output, #passcode {
             display: table-cell;
             vertical-align: middle;
             text-align: center;
         }
 
-        #algorithm {
-            width: 100px;
+        #passcode {
             height: 20px;
         }
 
-        #btnEncrypt {
-            margin-bottom: 20px;
-            font-size: 20px;
-            cursor: pointer;
+        #algorithm {
             width: 100px;
+            height: 25.97px;
+            margin-bottom: 5px;
+            position: relative;
+            bottom: 3px;
+            margin-left: 10px;
+
         }
 
-
-
+        #btn {
+            cursor: pointer;
+            height: 26px;
+            position: relative;
+            bottom: 2px;
+            margin-left: 10px;
+        }
     </style>
 </head>
 <body>
 <header>
+    <img src="https://d2u3dcdbebyaiu.cloudfront.net/img/companyPage_kr/logo_5931.jpg" class="logo">
     aimEncryptor
 </header>
-
 
 <main>
     <div class="input">
         <textarea id="input" cols="100" rows="15" placeholder="input"></textarea>
     </div>
 
+    <div class="option">
+        <input type="text" id="passcode" placeholder="passcode">
 
-    <input type="text" id="passcode" placeholder="passcode">
+        <select name="algorithm" id="algorithm">
+            <option value="algorithm1">algorithm1</option>
+            <option value="algorithm2">algorithm2</option>
+        </select>
 
-    <select name="algorithm" id="algorithm">
-        <option value="algorithm1">algorithm1</option>
-        <option value="algorithm2">algorithm2</option>
-        <option value="algorithm3">algorithm3</option>
-    </select>
+        <input type="button" id="btn" value="변환">
+    </div>
 
-    <input type="button" id="btn" value="변환">
 
     <div class="output">
         <textarea id="output" cols="100" rows="15" placeholder="output" readonly></textarea>
@@ -93,7 +107,7 @@
                 output.innerText = response;
             },
             error: function(error){
-                alert("실패, 입력값은 모두 영어로 이루어져야 하며 3번 알고리즘 선택 시 passcode는 8자 이상이어야 합니다.");
+                alert("passcode는 반드시 1자 이상이어야만 합니다.");
             }
         })
     });
