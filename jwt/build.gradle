@@ -20,6 +20,12 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+
+	// jwt 토큰 발행 라이브러리
+	implementation group: 'io.jsonwebtoken', name: 'jjwt', version: '0.9.1'
+
+	// xml 바인더
+	implementation 'javax.xml.bind:jaxb-api:2.3.0'
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	annotationProcessor 'org.projectlombok:lombok'
