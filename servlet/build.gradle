@@ -29,7 +29,7 @@ dependencies {
 	implementation 'javax.servlet:jstl'
 //	JSP 끝
 
-	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+//	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
