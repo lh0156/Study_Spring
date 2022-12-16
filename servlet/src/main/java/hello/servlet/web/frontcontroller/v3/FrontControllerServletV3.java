@@ -38,27 +38,27 @@ public class FrontControllerServletV3 extends HttpServlet {
         }
 
         Map<String, String> paramMap = createParamMap(request);
-
         ModelView mv = controller.process(paramMap);
-        String viewName = mv.getViewName();
 
+        String viewName = mv.getViewName();
         MyView view = viewResolver(viewName);
         view.render(mv.getModel(), request, response);
 
     }
 
     private static MyView viewResolver(String viewName) {
-        return new MyView("WEB-INF/views/" + viewName);
+        return new MyView("/WEB-INF/views/" + viewName + ".jsp");
     }
 
-    //ParamMap
+    //CreateParamMap - 인자로 넣은 파라미터를 하나의 해쉬맵 안에 모두 넣어준다.
     //1. request.getParameterNames를 통해서 모든 파라미터를 뽑아온다.
     //2. forEach를 돌면서 각 인자들을 모두 HashMap 안에 넣어준다
-    //3. return 해준다
+    //3. 해당 HashMap을 return 해준다.
     private static Map<String, String> createParamMap(HttpServletRequest request) {
         Map<String, String> paramMap = new HashMap<>();
         request.getParameterNames().asIterator()
                 .forEachRemaining(paramName -> paramMap.put(paramName, request.getParameter(paramName)));
+
         return paramMap;
     }
 }
