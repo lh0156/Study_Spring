@@ -5,28 +5,28 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @Slf4j
-@RequestMapping("/mapping")
+@RequestMapping("/mapping/users")
 public class MappingClassController {
 
-    @GetMapping("/users")
+    @GetMapping
     public String getUserList() {
         log.info("get User");
         return "ok get";
     }
 
-    @PostMapping("/users")
+    @PostMapping
     public String saveUser() {
         log.info("save User");
         return "post users";
     }
 
-    @GetMapping("/users/{userId}")
+    @GetMapping("/{userId}")
     public String findById(@PathVariable String userId) {
         log.info("userId is {}", userId);
         return "get userId= " + userId;
     }
 
-    @PatchMapping("/users/{userId}")
+    @PatchMapping("/{userId}")
     public String updateUser(@PathVariable String userId) {
         log.info("user is change {}", userId);
         return "get userId= " + userId;
