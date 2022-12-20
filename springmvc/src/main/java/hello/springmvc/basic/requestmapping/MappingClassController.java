@@ -32,10 +32,10 @@ public class MappingClassController {
         return "get userId= " + userId;
     }
 
-    @DeleteMapping("/users/userId")
+    @DeleteMapping("/{userId}")
     public String deleteUser(@PathVariable String userId) {
         log.info("{} is delete User", userId);
-        return "delete User" + userId;
+        return "delete User= " + userId;
     }
 
 }
