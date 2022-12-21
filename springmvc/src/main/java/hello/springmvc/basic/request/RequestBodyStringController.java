@@ -1,10 +1,15 @@
 package hello.springmvc.basic.request;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StreamUtils;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.ServletInputStream;
 import javax.servlet.http.HttpServletRequest;
@@ -40,11 +45,28 @@ public class RequestBodyStringController {
     }
 
     @PostMapping("/request-body-string-v3")
-    public void RequestBodyStringV3(@RequestBody String messageBody) {
+    public HttpEntity<String> RequestBodyStringV3(HttpEntity<String> httpEntity) {
 
+        String messageBody = httpEntity.getBody();
+
+        //헤더 정보 조회
+        // HttpHeaders headers = httpEntity.getHeaders();
         log.info("messageBody={}", messageBody);
 
+        return new ResponseEntity<String>("ok", HttpStatus.CREATED);
 
+    }
+
+    @ResponseBody
+    @PostMapping("/request-body-string-v4")
+    public String RequestBodyStringV3(@RequestBody String messageBody) {
+
+
+        //헤더 정보 조회
+        // HttpHeaders headers = httpEntity.getHeaders();
+        log.info("messageBody={}", messageBody);
+
+        return "ok";
 
     }
 
