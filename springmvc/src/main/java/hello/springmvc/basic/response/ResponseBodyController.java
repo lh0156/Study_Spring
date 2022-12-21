@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 @Slf4j
 //@Controller
@@ -47,12 +49,26 @@ public class ResponseBodyController {
     @ResponseStatus(HttpStatus.OK)
 //    @ResponseBody
     @GetMapping("/response-body-json-v2")
-    public HelloData responseBodyJsonV2() {
+    public List<HelloData> responseBodyJsonV2() {
+        List<HelloData> helloDataList = new ArrayList<>();
+
         HelloData helloData = new HelloData();
         helloData.setUsername("seopseop");
         helloData.setAge(26);
 
-        return helloData;
+        HelloData helloData1 = new HelloData();
+        helloData1.setUsername("eomeom");
+        helloData1.setAge(26);
+
+        HelloData helloData2 = new HelloData();
+        helloData1.setUsername("eomeom");
+        helloData1.setAge(26);
+
+        helloDataList.add(helloData);
+        helloDataList.add(helloData1);
+        helloDataList.add(helloData2);
+
+        return helloDataList;
     }
 
 }
