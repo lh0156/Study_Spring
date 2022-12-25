@@ -76,6 +76,17 @@ public class BasicItemController{
 
     }
 
+    @GetMapping("/{itemId}/delete")
+    public String deleteForm(@PathVariable long itemId, Model model) {
+        itemRepository.delete(itemId);
+
+        List<Item> items = itemRepository.findAll();
+        model.addAttribute("items", items);
+        return "basic/items";
+        
+
+    }
+
     /**
      * 테스트용 데이터 추가
      */
