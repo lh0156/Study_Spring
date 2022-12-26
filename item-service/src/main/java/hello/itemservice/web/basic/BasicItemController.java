@@ -117,7 +117,7 @@ public class BasicItemController{
     @PostConstruct
     public void init() {
         itemRepository.save(new Item("크리스마스 부산행 티켓", 50000, 100));
-        itemRepository.save(new Item("모찌도둑 이혜인", 10000, 100));
+        itemRepository.save(new Item("크크", 10000, 100));
         itemRepository.save(new Item("호오", 40000, 20));
         itemRepository.save(new Item("ㅋㅋ", 30000, 100));
 
