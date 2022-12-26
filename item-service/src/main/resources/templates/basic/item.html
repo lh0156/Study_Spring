@@ -16,7 +16,11 @@
 <div class="container">
     <div class="py-5 text-center">
         <h2>상품 상세</h2>
+
     </div>
+
+    <h2 th:if="${param.status}" th:text="'저장 완료'"></h2>
+
     <div>
         <label for="itemId">상품 ID</label>
         <input type="text" id="itemId" name="itemId" class="form-control"
@@ -51,8 +55,6 @@
                     th:onclick="|location.href='@{/basic/items/{itemId}/delete(itemId=${item.id})}'|"
                     type="button">상품 삭제
             </button>
-
-
         </div>
         <div class="col">
             <button class="w-100 btn btn-secondary btn-lg"
