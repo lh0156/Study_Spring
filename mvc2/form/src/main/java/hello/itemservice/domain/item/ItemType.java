@@ -6,6 +6,11 @@ public enum ItemType {
 
     private final String description;
 
+    // 이게 있어야 프로퍼티 접근법이 성립 가능하다
+    public String getDescription() {
+        return description;
+    }
+
     ItemType(String description) {
         this.description = description;
     }
