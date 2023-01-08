@@ -40,14 +40,18 @@
         </div>
         <div>
             <label for="price" th:text="#{label.item.price}">가격</label>
-            <input type="text" id="price" th:field="*{price}" class="form-control" placeholder="가격을 입력하세요">
+            <input type="text" id="price" th:field="*{price}" class="form-control"
+                   th:class="${errors?.containsKey('price')} ? 'form-control field-error' : 'form-control'"
+                   placeholder="가격을 입력하세요">
             <div th:if="${errors?.containsKey('price')}">
                 <p class="filed-error" th:text="${errors['price']}"></p>
             </div>
         </div>
         <div>
             <label for="quantity" th:text="#{label.item.quantity}">수량</label>
-            <input type="text" id="quantity" th:field="*{quantity}" class="form-control" placeholder="수량을 입력하세요">
+            <input type="text" id="quantity" th:field="*{quantity}" class="form-control"
+                   th:class="${errors?.containsKey('quantity')} ? 'form-control field-error' : 'form-control'"
+                   placeholder="수량을 입력하세요">
             <div th:if="${errors?.containsKey('quantity')}">
                 <p class="filed-error" th:text="${errors['quantity']}"></p>
             </div>
