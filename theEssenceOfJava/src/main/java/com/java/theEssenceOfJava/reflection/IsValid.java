@@ -1,4 +1,4 @@
-package com.java.theEssenceOfJava.beanutils;
+package com.java.theEssenceOfJava.reflection;
 
 import java.lang.reflect.Field;
 
