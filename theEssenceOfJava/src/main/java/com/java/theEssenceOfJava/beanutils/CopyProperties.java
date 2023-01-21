@@ -5,7 +5,7 @@ import lombok.Setter;
 import org.springframework.beans.BeanUtils;
 
 
-public class BeanUtilsPratice {
+public class CopyProperties {
 
     public static void main(String[] args) {
 
