@@ -9,7 +9,7 @@ public class IsValid {
         boolean isValidFlag = false;
 
         for(Field field : t.getClass().getDeclaredFields()) {
-            if (field.equals(value)) {
+            if (field.getName().equals(value)) {
                 isValidFlag = true;
                 break;
             }
